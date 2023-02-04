@@ -1,6 +1,7 @@
 import { paths } from "./route-path";
 import Home from "../pages/home";
 import Country from "../pages/country";
+import NotFound from "../pages/not-found";
 
 export const routes = [
   {
@@ -11,5 +12,10 @@ export const routes = [
   {
     path: paths.country(":name"),
     element: <Country />,
-  }
+  },
+  {
+    path: "*",
+    element: <NotFound />,
+    status: 404,
+  },
 ];
