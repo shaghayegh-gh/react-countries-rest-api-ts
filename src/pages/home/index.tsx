@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { getCountries } from "../../services/countries-service";
+import Filters from "../../components/filters";
 import Countries from "../../components/countries";
 import { CountriesType } from "../../setup/global-types";
 
@@ -14,7 +15,7 @@ const Home = () => {
         setLoading(false);
         setCountries(data);
       }),
-      // eslint-disable-next-line
+    // eslint-disable-next-line
     []
   );
 
@@ -25,6 +26,12 @@ const Home = () => {
 
   return (
     <div className="md:container md:mx-auto px-4">
+      <Filters
+        reloadData={getAllCountries}
+        setCountries={setCountries}
+        setLoading={setLoading}
+        setError={setError}
+      />
       <Countries countries={countries} loading={loading} error={error} />
     </div>
   );
