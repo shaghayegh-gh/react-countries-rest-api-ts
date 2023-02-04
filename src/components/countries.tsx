@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { paths } from "../router/route-path";
 import { CountriesType } from "../setup/global-types";
 import Card from "./card";
 
@@ -19,14 +21,15 @@ function Countries({ countries, loading, error }: CountriesProps) {
       {!loading && !error && (
         <div className="grid md:grid-cols-4 sm:grid-cols-2 xs:grid-cols-1 gap-8">
           {countries.map((c, i) => (
-            <Card
-              key={i}
-              flag={c.flag}
-              name={c.name}
-              population={c.population}
-              region={c.region}
-              capital={c.capital}
-            />
+              <Link key={i} to={paths.country(c.name)}>
+              <Card
+                flag={c.flag}
+                name={c.name}
+                population={c.population}
+                region={c.region}
+                capital={c.capital}
+              />
+            </Link>
           ))}
         </div>
       )}
