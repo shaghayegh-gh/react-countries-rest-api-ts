@@ -1,4 +1,5 @@
 import { CountriesType } from "../setup/global-types";
+import Card from "./card";
 
 type CountriesProps = {
   countries: CountriesType;
@@ -18,7 +19,14 @@ function Countries({ countries, loading, error }: CountriesProps) {
       {!loading && !error && (
         <div className="grid md:grid-cols-4 sm:grid-cols-2 xs:grid-cols-1 gap-8">
           {countries.map((c, i) => (
-            <p key={i}>{c.name}</p>
+            <Card
+              key={i}
+              flag={c.flag}
+              name={c.name}
+              population={c.population}
+              region={c.region}
+              capital={c.capital}
+            />
           ))}
         </div>
       )}
