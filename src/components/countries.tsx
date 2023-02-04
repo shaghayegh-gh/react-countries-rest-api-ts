@@ -19,7 +19,7 @@ function Countries({ countries, loading, error }: CountriesProps) {
         <p className="text-center font-bold m-20 text-4xl">Not found!</p>
       )}
       {!loading && !error && (
-        <div className="grid md:grid-cols-4 sm:grid-cols-2 xs:grid-cols-1 gap-8">
+        <div className="grid md:grid-cols-4 sm:grid-cols-2 xs:grid-cols-1 gap-8 pb-8">
           {countries.map((c, i) => (
               <Link key={i} to={paths.country(c.name)}>
               <Card
