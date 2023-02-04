@@ -17,4 +17,4 @@ type GetCountriesResponse = {
 export const getRequest = async (url: string) =>
   await axiosClient
     .get<GetCountriesResponse>(url)
-    .then((res: AxiosResponse<GetCountriesResponse>) => res.data);
+    .then((res: AxiosResponse) => res.data);
